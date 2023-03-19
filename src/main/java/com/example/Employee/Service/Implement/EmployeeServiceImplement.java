@@ -1,12 +1,13 @@
 package com.example.Employee.Service.Implement;
 
 import com.example.Employee.Model.Employee;
+import com.example.Employee.Repository.EmployeeRepository;
 import com.example.Employee.Service.EmployeeService;
 
 import java.util.List;
 
 public class EmployeeServiceImplement implements EmployeeService {
-    private EmployeeRepository employeeRepository;
+    private final EmployeeRepository employeeRepository;
 
     public EmployeeServiceImplement(EmployeeRepository employeeRepository) {
         super();
