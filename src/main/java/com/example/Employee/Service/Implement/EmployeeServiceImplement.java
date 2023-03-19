@@ -1,5 +1,6 @@
 package com.example.Employee.Service.Implement;
 
+import com.example.Employee.Exception.ResourceNotFoundExceptions;
 import com.example.Employee.Model.Employee;
 import com.example.Employee.Repository.EmployeeRepository;
 import com.example.Employee.Service.EmployeeService;
@@ -33,7 +34,7 @@ public class EmployeeServiceImplement implements EmployeeService {
 //			throw new ResourceNotFoundException("Employee", "Id", id);
 //		}
         return employeeRepository.findById(id).orElseThrow(() ->
-                new ResourceNotFoundException("Employee", "Id", id));
+                new ResourceNotFoundExceptions("Employee", "Id", id));
 
     }
 
@@ -42,7 +43,7 @@ public class EmployeeServiceImplement implements EmployeeService {
 
         // we need to check whether employee with given id is exist in DB or not
         Employee existingEmployee = employeeRepository.findById(id).orElseThrow(
-                () -> new ResourceNotFoundException("Employee", "Id", id));
+                () -> new ResourceNotFoundExceptions("Employee", "Id", id));
 
         existingEmployee.setFirstName(employee.getFirstName());
         existingEmployee.setLastName(employee.getLastName());
@@ -57,7 +58,7 @@ public class EmployeeServiceImplement implements EmployeeService {
 
         // check whether a employee exist in a DB or not
         employeeRepository.findById(id).orElseThrow(() ->
-                new ResourceNotFoundException("Employee", "Id", id));
+                new ResourceNotFoundExceptions("Employee", "Id", id));
         employeeRepository.deleteById(id);
     }
 }
