@@ -4,11 +4,12 @@ import com.example.Employee.Exception.ResourceNotFoundExceptions;
 import com.example.Employee.Model.Employee;
 import com.example.Employee.Repository.EmployeeRepository;
 import com.example.Employee.Service.EmployeeService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class EmployeeServiceImplement implements EmployeeService {
-    private final EmployeeRepository employeeRepository;
+    private final EmployeeRepository employeeRepository; // Constructor based dependency injection
 
     public EmployeeServiceImplement(EmployeeRepository employeeRepository) {
         super();
