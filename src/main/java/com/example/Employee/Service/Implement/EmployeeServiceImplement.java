@@ -34,7 +34,7 @@ public class EmployeeServiceImplement implements EmployeeService {
 //		}else {
 //			throw new ResourceNotFoundException("Employee", "Id", id);
 //		}
-        return employeeRepository.findById(id).orElseThrow(() ->
+        return employeeRepository.findById(id).orElseThrow(() ->  // Lambda Expression
                 new ResourceNotFoundExceptions("Employee", "Id", id));
 
     }
