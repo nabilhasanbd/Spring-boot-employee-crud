@@ -20,8 +20,7 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/hello")
-    public String hello()
-    {
+    public String hello() {
         return "Hello employee";
     }
 
@@ -36,21 +35,26 @@ public class EmployeeController {
     }
 
     @GetMapping(value = "/list/employee")
-    public List<Employee> getAllEmployees(){
+    public List<Employee> getAllEmployees() {
         return employeeService.getAllEmployees();
     }
 
     @GetMapping(value = "/employee/{id}")
-    public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") long id){
+    public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") long id) {
         return new ResponseEntity<Employee>(employeeService.getEmployeeById(id), HttpStatus.OK);
     }
 
     @PutMapping(value = "/edit/employee/{id}")
-    public ResponseEntity<Employee> updateEmployee(@PathVariable("id") long id , @RequestBody Employee employee){
+    public ResponseEntity<Employee> updateEmployee(@PathVariable("id") long id, @RequestBody Employee employee) {
         return new ResponseEntity<Employee>(employeeService.updateEmployee(employee, id), HttpStatus.OK);
     }
 
+    @DeleteMapping(value = "/delete/employee/{id}")
+    public ResponseEntity<String> deleteEmployee(@PathVariable("id") long id) {
+        employeeService.deleteEmployee(id);
+        return new ResponseEntity<String>("Employee deleted successfully !!", HttpStatus.OK);
 
+    }
 
 
 }

@@ -7,6 +7,7 @@ import com.example.Employee.Service.EmployeeService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class EmployeeServiceImplement implements EmployeeService {
     private final EmployeeRepository employeeRepository; // Constructor based dependency injection
@@ -56,7 +57,6 @@ public class EmployeeServiceImplement implements EmployeeService {
 
     @Override
     public void deleteEmployee(long id) {
-
         // check whether a employee exist in a DB or not
         employeeRepository.findById(id).orElseThrow(() ->
                 new ResourceNotFoundExceptions("Employee", "Id", id));
