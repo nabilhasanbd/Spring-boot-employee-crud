@@ -10,8 +10,12 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
 import com.sun.istack.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Entity
 @Table(name="employees")
@@ -20,6 +24,16 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+//    public Employee(long id, String firstName, String lastName, String email) {
+//        this.id = id;
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.email = email;
+//    }
+//
+//    public Employee() {
+//    }
 
     @NotNull
     @Size(min=2 , message = "First name character must be more one")

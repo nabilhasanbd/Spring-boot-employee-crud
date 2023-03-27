@@ -24,15 +24,15 @@ public class EmployeeController {
         return "Hello employee";
     }
 
-//    @PostMapping(value = "/save-employee")
-//    public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee){
-//        return new ResponseEntity<Employee>(employeeService.saveEmployee(employee), HttpStatus.CREATED);
-//    }
-
     @PostMapping(value = "/save-employee")
-    public void saveEmployee(@RequestBody Employee employee) {
-        employeeService.saveEmployee(employee);
+    public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee){
+        return new ResponseEntity<>(employeeService.saveEmployee(employee), HttpStatus.CREATED);
     }
+
+//    @PostMapping(value = "/save-employee")
+//    public void saveEmployee(@RequestBody Employee employee) {
+//        employeeService.saveEmployee(employee);
+//    }
 
     @GetMapping(value = "/list/employee")
     public List<Employee> getAllEmployees() {
