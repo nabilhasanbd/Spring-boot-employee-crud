@@ -16,12 +16,12 @@ import java.util.List;
 //@RequiredArgsConstructor
 public class EmployeeController {
 
-//    @Autowired
+    @Autowired // if we use @autowired and @RequiredArgsConstructor then we dont need to create constructor
     private EmployeeService employeeService;
 
-    public EmployeeController(EmployeeService employeeService) {
-        this.employeeService = employeeService;
-    }
+//    public EmployeeController(EmployeeService employeeService) {
+//        this.employeeService = employeeService;
+//    }
 
     @RequestMapping(value = "/hello")
     public String hello() {
@@ -30,7 +30,7 @@ public class EmployeeController {
 
     @PostMapping(value = "/save-employee")
     public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee){
-        return new ResponseEntity<>(employeeService.saveEmployee(employee), HttpStatus.CREATED);
+        return new ResponseEntity<>(employeeService.saveEmployee(employee), HttpStatus.CREATED); // to send a response HttpStatus with entity we use ResponseEntity
     }
 
 //    @PostMapping(value = "/save-employee")
