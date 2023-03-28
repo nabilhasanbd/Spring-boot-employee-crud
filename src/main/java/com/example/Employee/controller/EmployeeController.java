@@ -2,7 +2,9 @@ package com.example.Employee.controller;
 
 import com.example.Employee.Model.Employee;
 import com.example.Employee.Service.EmployeeService;
+import lombok.RequiredArgsConstructor;
 import org.apache.catalina.connector.Response;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,8 +13,10 @@ import java.awt.print.Book;
 import java.util.List;
 
 @RestController
+//@RequiredArgsConstructor
 public class EmployeeController {
 
+//    @Autowired
     private EmployeeService employeeService;
 
     public EmployeeController(EmployeeService employeeService) {
