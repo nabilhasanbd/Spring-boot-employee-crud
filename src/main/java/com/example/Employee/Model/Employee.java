@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @Table(name="employees")
 public class Employee {
 
-    @Id
+    @Id // This annotation will make it a primary key
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
@@ -44,6 +44,11 @@ public class Employee {
     @Size(min=2 , message = "First name character must be more one")
     @Column(name = "last_name")
     private String lastName;
+
+    @NotNull
+    @Size(min=5 , message = "Salary must be atleast 10000")
+    @Column(name = "salary")
+    private long salary;
 
     @Email
     @Column(name = "email")
