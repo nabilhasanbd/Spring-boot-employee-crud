@@ -2,8 +2,6 @@ package com.example.Employee.controller;
 
 import com.example.Employee.Model.Employee;
 import com.example.Employee.Service.EmployeeService;
-import lombok.RequiredArgsConstructor;
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,14 +29,10 @@ public class EmployeeController {
     }
 
     @PostMapping(value = "/save-employee")
-    public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee){
+    public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee) {
         return new ResponseEntity<>(employeeService.saveEmployee(employee), HttpStatus.CREATED); // to send a response HttpStatus with entity we use ResponseEntity
     }
 
-//    @PostMapping(value = "/save-employee")
-//    public void saveEmployee(@RequestBody Employee employee) {
-//        employeeService.saveEmployee(employee);
-//    }
 
     @GetMapping(value = "/list/employee")
     public List<Employee> getAllEmployees() {
